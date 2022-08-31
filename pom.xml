@@ -16,6 +16,7 @@
     </properties>
     <modules>
         <module>test-app</module>
+        <module>test-provider</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -38,6 +39,16 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
