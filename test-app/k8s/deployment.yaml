@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: # 资源的元数据/属性
+  name: test-consumer-deployment # 资源的名字，在同一个namespace中必须唯一
+  namespace: manshow-test # 部署在哪个namespace中
+  labels:  # 设定资源的标签
+    app: test-consumer-deployment
+spec: # 资源规范字段
+  selector: # 选择器
+    matchLabels: # 匹配标签
+      app: test-consumer-pod
+  replicas: 3 # 声明副本数目
+  template: # 模版
+    metadata:
+      labels:
+        app: test-consumer-pod
+    spec:
+      containers:
+        - name: test-consumer-container  # 容器名
+          image: 192.168.253.26:5000/consumer:v1   #镜像地址
+          ports:
+            - containerPort: 8081

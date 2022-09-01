@@ -1,12 +1,10 @@
-package com.leemanshow.testapp.feign;
+package com.leemanshow.testapp.controller;
 
 
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name = "kesapp",url = "test-provider:8084")//, fallback = UserClientFallback.class
 public interface TestFeignClient {
     @RequestMapping(method = RequestMethod.GET, value = "/health", consumes = MediaType.APPLICATION_JSON_VALUE)
     String health();
